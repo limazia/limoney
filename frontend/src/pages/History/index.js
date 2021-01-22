@@ -81,8 +81,8 @@ export default function History() {
                             <tr key={item.history_id}>
                               <td>
                                 <b>Você</b> enviou{" "}
-                                <b>
-                                  {item.history_value.toLocaleString("pt-BR", {
+                                <b className="text-danger">
+                                  -{item.history_value.toLocaleString("pt-BR", {
                                     style: "currency",
                                     currency: "BRL",
                                   })}
@@ -97,8 +97,8 @@ export default function History() {
                             <tr key={item.history_id}>
                               <td>
                                 <b>Você</b> recebeu{" "}
-                                <b>
-                                  {item.history_value.toLocaleString("pt-BR", {
+                                <b className="text-success">
+                                  +{item.history_value.toLocaleString("pt-BR", {
                                     style: "currency",
                                     currency: "BRL",
                                   })}

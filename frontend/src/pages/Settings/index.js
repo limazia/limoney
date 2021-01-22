@@ -58,7 +58,6 @@ export default function Settings() {
         confirmNewPassword,
       });
       const { error, message } = data;
-      console.log(error, message);
 
       if (message) {
         toast.success(message);
@@ -95,7 +94,7 @@ export default function Settings() {
                     <Form onSubmit={handleSubmit} autoComplete="off">
                       <div className="row mt-2">
                         <div className="col-md-6">
-                          <label className="labels">Nome</label>
+                          <label>Nome</label>
                           <input
                             type="text"
                             name="name"
@@ -106,7 +105,7 @@ export default function Settings() {
                           />
                         </div>
                         <div className="col-md-6">
-                          <label className="labels">Email</label>
+                          <label>Email</label>
                           <input
                             type="text"
                             name="email"
@@ -119,7 +118,7 @@ export default function Settings() {
                       </div>
                       <div className="row mt-3">
                         <div className="col-md-12">
-                          <label className="labels">Senha antiga</label>
+                          <label>Senha antiga</label>
                           <input
                             type="password"
                             name="password"
@@ -132,7 +131,7 @@ export default function Settings() {
                       </div>
                       <div className="row mt-3">
                         <div className="col-md-6">
-                          <label className="labels">Senha nova</label>
+                          <label>Senha nova</label>
                           <input
                             type="password"
                             name="newpassword"
@@ -143,7 +142,7 @@ export default function Settings() {
                           />
                         </div>
                         <div className="col-md-6">
-                          <label className="labels">Confirme a senha</label>
+                          <label>Confirme a senha</label>
                           <input
                             type="password"
                             name="confirmnewpassword"

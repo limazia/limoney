@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.string("email").notNullable();
     table.string("name").notNullable();
     table.string("password").notNullable();
- 
+
     table.timestamp("updateAt").defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
     table.timestamp("createdAt").defaultTo(knex.raw('CURRENT_TIMESTAMP'));
   });

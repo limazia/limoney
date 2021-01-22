@@ -33,10 +33,6 @@
   cursor: pointer
 }
 
-.labels {
-  font-size: 13px
-}
-
 .add-experience:hover {
   background: #BA68C8;
   color: #fff;

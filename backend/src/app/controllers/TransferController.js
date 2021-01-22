@@ -66,11 +66,16 @@ class TransferController {
         return response.json({ error: "Você não pode fazer uma transferência para si mesmo" })
       }
 
-      if (transfer_value <= 0) {
+      if (parseInt(transfer_value) <= 0) {
         return response.json({ error: "Valor de transferência inválido" });  
       }
 
-      if (transfer_value > userFrom[0].balance_money) {
+      if (parseInt(transfer_value) > userFrom[0].balance_money ||
+        !parseInt(transfer_value) === userFrom[0].balance_money) {
+        return response.json({ error: "Você não tem dinheiro suficiente para realizar a transferência" });  
+      }
+
+      if (!userFrom[0].balance_money) {
         return response.json({ error: "Você não tem dinheiro suficiente para realizar a transferência" });  
       }
       
@@ -88,7 +93,7 @@ class TransferController {
         history_id,
         history_from: userFrom[0].name,
         history_to: userTo[0].name,
-        history_value: transfer_value
+        history_value: parseInt(transfer_value)
       });
 
       await trx.commit();
@@ -96,7 +101,7 @@ class TransferController {
       const transferDetails = {
         userFrom: userFrom[0].name,
         userTo: userTo[0].name,
-        value: transfer_value
+        value: parseInt(transfer_value)
       }
 
       request.io.emit("transferWarning", transferDetails);

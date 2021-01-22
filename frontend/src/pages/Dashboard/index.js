@@ -39,7 +39,7 @@ export default function Dashboard() {
       toast.error("Erro ao carregar os usuários!");
     }
   }
-
+ 
   async function loadInfo() {
     try {
       const { data } = await api.get("api/auth/session");
@@ -69,7 +69,7 @@ export default function Dashboard() {
                   <thead>
                     <tr>
                       <th>Nome</th>
-                      <th>Tipo</th>
+                      <th>Saldo</th>
                       <th>Ações</th>
                     </tr>
                   </thead>
@@ -78,10 +78,24 @@ export default function Dashboard() {
                       <tr key={user.id}>
                         <td>{user.name}</td>
                         <td>
-                          <span className="badge badge-primary">Membro</span>
+                          {user.balance.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })}
                         </td>
                         <td>
-                          {user.id !== info.id && <Link to={`./${user.id}/transfer`}>Enviar transferência</Link>}
+                          {user.id !== info.id ? (
+                            <Link to={`./${user.id}/transfer`}>
+                              Enviar transferência
+                            </Link>
+                          ) : (
+                            <i
+                              className="fas fa-question-circle"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Você não pode fazer uma transferência para si mesmo"
+                            ></i>
+                          )}
                         </td>
                       </tr>
                     ))}

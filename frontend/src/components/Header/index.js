@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import socketio from 'socket.io-client';
+//import { toast } from 'react-toastify';
+//import socketio from 'socket.io-client';
 
 import api from '../../services/api';
 import { logout } from '../../services/auth';
@@ -17,6 +17,7 @@ function Header() {
   useEffect(() => {
     loadInfo();
 
+    /*
     const socket = socketio(process.env.REACT_APP_SOCKET_URL);
 
     socket.on("transferWarning", (data) => {
@@ -25,7 +26,8 @@ function Header() {
         return () => socket.disconnect();
       }
     });
-
+    */
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info.id]);
 

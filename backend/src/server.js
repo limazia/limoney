@@ -19,6 +19,7 @@ app.use((request, response, next) => {
   next();
 });
 
+/*
 let connectedUsers = {};
 
 io.on('connection', (socket) => {
@@ -28,6 +29,7 @@ io.on('connection', (socket) => {
     delete connectedUsers[socket.id];
   });
 });
+*/
 
 app.use((request, response, next) => {
   request.io = io;

@@ -1,14 +1,14 @@
 const connection = require('../../database/connection');
 const bcrypt = require('bcrypt');
 const moment = require("moment")
-
 moment.locale("pt-br");
 
 class UserController {
   async listAllUsers(request, response, next) {
     try {
       const users = await connection("users")
-        .leftJoin("users_balance", "users_balance.balance_user", "=", "users.id");
+        .leftJoin("users_balance", "users_balance.balance_user", "=", "users.id")
+        .orderBy("users.createdAt", "desc");;
 
       const serializedItems = users.map((item) => {
         const {
@@ -21,9 +21,9 @@ class UserController {
         return {
           id,
           name,
-          points: balance_money,
+          balance: balance_money,
           updateAt: moment(updateAt).format("LLL"),
-          createdAt: moment(createdAt).format("LLL")
+          createdAt: moment(createdAt).format("LLL"),
         };
       });
 
@@ -58,7 +58,7 @@ class UserController {
           id,
           email,
           name,
-          points: balance_money,
+          balance: balance_money,
           updateAt: moment(updateAt).format("LLL"),
           createdAt: moment(createdAt).format("LLL")
         });

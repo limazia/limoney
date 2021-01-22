@@ -43,7 +43,7 @@ class AuthController {
         id,
         name,
         email,
-        password: passwordCrypt,
+        password: passwordCrypt
       });
 
       await trx("users_balance").insert({

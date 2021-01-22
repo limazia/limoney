@@ -86,6 +86,20 @@ export default function Transfer() {
     }
   }
 
+  function checkNumber(value) {
+    if (!value) {
+      return true;
+    } else if (value === "0") {
+      return true;
+    } else if (value < "0") {
+      return true;
+    } else if (value >= 1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   document.title = `${process.env.REACT_APP_NAME} - Transferir para ${infoFrom.name}`;
   document.body.style.overflowY = "auto";
   return (
@@ -98,17 +112,15 @@ export default function Transfer() {
           <div className="container mt-5 pb-5">
             <div className="row">
               <div class="col-md-4">
-                <div class="card-box bg-green">
+                <div class="card-box">
                   <div class="inner">
-                    <h3>Sua carteira</h3>
-                    <small>
-                      Saldo:{" "}
-                      {infoTo.points.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
-                    </small>
-                  </div>
+                    <span>Seu saldo {process.env.REACT_APP_NAME}</span>
+                      <h3>{infoTo.balance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h3>
+                      <small className="text-muted">Disponível</small>
+                    </div>
+                    <div className="mt-3 ml-2">
+                      <button className="btn btn-info">Adicionar saldo</button>
+                    </div>
                 </div>
               </div>
               <div className="col-md-8">
@@ -120,7 +132,7 @@ export default function Transfer() {
                     <Form onSubmit={handleSubmit} autoComplete="off">
                       <div className="row mt-2">
                         <div className="col-md-12">
-                          <label className="labels">Valor</label>
+                          <label>Valor</label>
                           <input
                             type="number"
                             name="transfer_value"
@@ -134,7 +146,7 @@ export default function Transfer() {
                       <div className="mt-3 text-center">
                         <button
                           type="submit"
-                          disabled={!value || value === "0" ? true : false}
+                          disabled={checkNumber(value)}
                           className="btn btn-block btn-send-transfer mb-4"
                         >
                           {loading ? (

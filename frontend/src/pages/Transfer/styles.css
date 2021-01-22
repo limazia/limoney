@@ -1,15 +1,17 @@
 .card-box {
   position: relative;
-  color: #fff;
+  color: #000;
+  background: #FFF;
   padding: 20px 10px 40px;
+  word-wrap: break-word;
 }
 
 .card-box .inner {
   padding: 5px 10px 0 10px;
 }
 
-.card-box h3 {
-  font-size: 27px;
+.card-box span {
+  font-size: 1rem;
   font-weight: bold;
   margin: 0 0 8px 0;
   white-space: nowrap;
@@ -17,24 +19,11 @@
   text-align: left;
 }
 
-.card-box small {
-  font-size: 15px;
-}
-
-.bg-blue {
-  background-color: #00c0ef !important;
-}
-
-.bg-green {
-  background-color: #00a65a !important;
-}
-
-.bg-orange {
-  background-color: #f39c12 !important;
-}
-
-.bg-red {
-  background-color: #d9534f !important;
+.card-box h3 {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
 .btn-send-transfer {
@@ -46,7 +35,6 @@
   height: 50px;
   transition: background 0.2s ease 0s, color 0.2s ease 0s;
   font-size: 16px;
-  text-transform: uppercase;
 }
 
 .btn-send-transfer:hover {
