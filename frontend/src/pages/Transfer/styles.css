@@ -1,0 +1,60 @@
+.card-box {
+  position: relative;
+  color: #fff;
+  padding: 20px 10px 40px;
+}
+
+.card-box .inner {
+  padding: 5px 10px 0 10px;
+}
+
+.card-box h3 {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  white-space: nowrap;
+  padding: 0;
+  text-align: left;
+}
+
+.card-box small {
+  font-size: 15px;
+}
+
+.bg-blue {
+  background-color: #00c0ef !important;
+}
+
+.bg-green {
+  background-color: #00a65a !important;
+}
+
+.bg-orange {
+  background-color: #f39c12 !important;
+}
+
+.bg-red {
+  background-color: #d9534f !important;
+}
+
+.btn-send-transfer {
+  background: #007bff;
+  border-radius: 5px;
+  border: 0px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  height: 50px;
+  transition: background 0.2s ease 0s, color 0.2s ease 0s;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.btn-send-transfer:hover {
+  color: #FFF;
+  background: #0062cc;
+  transition-delay: 0s;
+}
+
+.btn-send-transfer:disabled, .btn-send-transfer button[disabled] {
+  cursor: not-allowed;
+}

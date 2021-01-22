@@ -1,0 +1,14 @@
+.btn-update {
+  padding: 13px 20px 12px;
+  background-color: #000;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.btn-update:hover {
+  color: #fff;
+}

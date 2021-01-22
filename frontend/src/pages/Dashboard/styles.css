@@ -1,0 +1,20 @@
+.table {
+  border-collapse: separate;
+  border-spacing:0 20px;
+}
+
+.table-bordered {
+  border: none;
+}
+
+.table-bordered > thead, tbody {
+  background-color: #FFF;
+}
+
+.table-bordered thead td, .table-bordered thead th {
+  border: none;
+}
+
+.table-bordered td, .table-bordered th {
+  border: none;
+}
